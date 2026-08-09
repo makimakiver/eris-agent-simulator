@@ -94,8 +94,10 @@ export async function deployGmxV2({ seed }: { seed: boolean }) {
   seedSharedTokenArtifacts();
 
   const res = spawnSync(
-    "npx",
-    ["hardhat", "deploy", "--network", "localhost"],
+    process.platform === "win32" ? "cmd.exe" : "npx",
+    process.platform === "win32"
+      ? ["/d", "/s", "/c", "npx hardhat deploy --network localhost"]
+      : ["hardhat", "deploy", "--network", "localhost"],
     {
       cwd: GMX_DIR,
       env: { ...process.env, SKIP_AUTO_HANDLER_REDEPLOYMENT: "true", RPC_URL },

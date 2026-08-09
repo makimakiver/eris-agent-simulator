@@ -29,15 +29,22 @@ export async function deployAaveV3({ seed }: { seed: boolean }) {
   rmSync(DEPLOYMENTS, { recursive: true, force: true });
 
   const res = spawnSync(
-    "npx",
-    [
-      "hardhat",
-      "deploy",
-      "--network",
-      "localhost",
-      "--tags",
-      "market,periphery-post",
-    ],
+    process.platform === "win32" ? "cmd.exe" : "npx",
+    process.platform === "win32"
+      ? [
+          "/d",
+          "/s",
+          "/c",
+          "npx hardhat deploy --network localhost --tags market,periphery-post",
+        ]
+      : [
+          "hardhat",
+          "deploy",
+          "--network",
+          "localhost",
+          "--tags",
+          "market,periphery-post",
+        ],
     {
       cwd: AAVE_DIR,
       env: { ...process.env, MARKET_NAME: "Aave", RPC_URL },

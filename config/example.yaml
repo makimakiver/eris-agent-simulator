@@ -103,3 +103,6 @@ agents:
     description: base-agnostic cross-venue arbitrage (all active bases x all venues; LLM-driven via prompt.md)
     env: { ERIS_AGENT_MODE: "prompt", ERIS_PROMPT_LOG_CALLS: "1" }
     # env: { ERIS_AGENT_MODE: "prompt", ERIS_PROMPT_LOG_CALLS: "1", ERIS_LLM_MODEL: "claude-cli:haiku" }
+  - id: spread-arb
+    wallet: AGENT4_PRIVATE_KEY
+    description: rule-based, fee-aware delta-neutral bundle arbitrage across the widest AMM venue spread
