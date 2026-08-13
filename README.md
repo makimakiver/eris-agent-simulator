@@ -4,6 +4,8 @@
 
 <h1 align="center">Eris: Agent Simulator</h1>
 
+> **makimakiver fork** — Local experimentation branch for self-improving trading agents and reproducible DeFi simulations.
+
 <p align="center">
   <strong>The Agentic Financial Simulation Layer</strong><br>
   <em>Let your contracts face the swarm.</em>
